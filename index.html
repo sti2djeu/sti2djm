@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080a0d">
+  <title>STI2D JM JEU — Portail de jeux</title>
+  <style>
+    :root{color-scheme:dark;--bg:#080a0d;--panel:#11151b;--line:#252c35;--muted:#9ba6b4;--white:#f5f7fa;--green:#6dffb5;--cyan:#65dfff}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1120px,calc(100% - 44px));margin:auto}
+    .topbar{height:70px;border-bottom:1px solid #ffffff0d;display:flex;align-items:center}.nav{display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:11px;font-weight:850;letter-spacing:.015em}.brand-mark{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--green);color:#07100c;font-size:14px;box-shadow:0 0 24px #6dffb533}.brand em{color:var(--green);font-style:normal}.navlinks{display:flex;gap:25px;color:#a4adb8;font-size:13px}.navlinks a:hover{color:white}
+    .hero{position:relative;overflow:hidden;padding:78px 0 59px;background:radial-gradient(ellipse at 76% 45%,#16352c88,transparent 40%),radial-gradient(ellipse at 14% 0%,#14293677,transparent 45%)}.hero:after{content:"";position:absolute;width:360px;height:360px;border:1px solid #6dffb512;border-radius:50%;right:4%;top:16px;box-shadow:0 0 0 44px #6dffb507,0 0 0 88px #6dffb504;pointer-events:none}.hero-inner{position:relative;z-index:1;max-width:720px}.eyebrow{display:flex;align-items:center;gap:9px;color:var(--green);font-size:11px;text-transform:uppercase;letter-spacing:.17em;font-weight:800}.pulse{height:7px;width:7px;border-radius:50%;background:var(--green);box-shadow:0 0 14px var(--green)}h1{font-size:clamp(44px,8vw,82px);line-height:.98;letter-spacing:-.065em;margin:20px 0 17px}h1 span{color:var(--green)}.hero p{max-width:510px;color:#a6b0bb;font-size:16px;margin:0}.hero-actions{display:flex;gap:12px;align-items:center;margin-top:27px}.button{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:9px;padding:11px 16px;font-size:13px;font-weight:750;transition:.18s}.button.primary{background:var(--green);color:#07110c}.button.primary:hover{transform:translateY(-2px);box-shadow:0 7px 25px #6dffb526}.button.secondary{border:1px solid #303943;color:#d1d7dd}.button.secondary:hover{border-color:#697680}
+    main{padding:33px 0 75px}.section-top{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:17px}.section-kicker{color:var(--green);text-transform:uppercase;letter-spacing:.15em;font-size:10px;font-weight:800;margin:0 0 5px}.section-top h2{font-size:22px;letter-spacing:-.035em;margin:0}.section-note{color:#7e8995;font-size:12px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{position:relative;isolation:isolate;min-height:208px;padding:19px;border:1px solid var(--line);border-radius:13px;background:linear-gradient(145deg,#141920,#0f1217);display:flex;flex-direction:column;overflow:hidden;transition:transform .2s,border-color .2s,background .2s}.card:hover{transform:translateY(-4px);border-color:#56675e;background:linear-gradient(145deg,#19221e,#11161a)}.card:focus-visible,.button:focus-visible,.navlinks a:focus-visible{outline:2px solid var(--green);outline-offset:3px}.card.featured{grid-column:span 2;min-height:238px;border-color:#30644f;background:radial-gradient(ellipse at 80% 20%,#1a553d88,transparent 45%),linear-gradient(135deg,#14231d,#101419)}.card.featured:after{content:"R";position:absolute;z-index:-1;right:19px;bottom:-67px;font-weight:950;font-size:230px;line-height:1;color:#6dffb50a;letter-spacing:-.12em}.cardhead{display:flex;justify-content:space-between;align-items:center}.icon{width:39px;height:39px;display:grid;place-items:center;border-radius:10px;background:#1a2424;border:1px solid #33413e;color:var(--green);font-weight:900;font-size:16px}.featured .icon{background:#18352a;border-color:#326b53}.badge{border:1px solid #35694f;background:#173326;border-radius:99px;padding:4px 9px;color:var(--green);font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.out{font-size:18px;color:#89939d}.card h3{font-size:18px;letter-spacing:-.025em;margin:18px 0 4px}.featured h3{font-size:24px}.card p{color:var(--muted);font-size:13px;margin:0;max-width:350px}.cardfoot{margin-top:auto;padding-top:17px;display:flex;align-items:center;justify-content:space-between;gap:10px;color:#84909a;font-size:11px}.visit{color:var(--green);font-weight:750;font-size:12px}.url{overflow-wrap:anywhere}
+    .notice{margin-top:22px;padding:14px 16px;border:1px solid #242b33;border-radius:10px;color:#929da8;background:#0e1115;font-size:12px}.notice b{color:#c8d0d8}.footer{border-top:1px solid #ffffff0d;padding:20px 0 26px;color:#717c87;font-size:11px}.footer .wrap{display:flex;justify-content:space-between;gap:14px}
+    @media(max-width:720px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.card.featured{grid-column:span 2}.hero{padding:62px 0 48px}.hero:after{right:-170px}}
+    @media(max-width:500px){.wrap{width:min(100% - 32px,1120px)}.topbar{height:60px}.navlinks{gap:14px;font-size:12px}.navlinks a:first-child{display:none}.brand{font-size:13px}.hero{padding:53px 0 43px}h1{font-size:48px}.hero p{font-size:14px}.grid{grid-template-columns:1fr;gap:10px}.card,.card.featured{grid-column:auto;min-height:180px}.card.featured{min-height:205px}.section-note{display:none}.footer .wrap{display:block;text-align:center}.footer .wrap span{display:block;margin:4px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+  </style>
+</head>
+<body>
+  <div class="topbar"><nav class="wrap nav" aria-label="Navigation principale">
+    <a class="brand" href="#accueil"><span class="brand-mark">JM</span><span>STI2D <em>JM JEU</em></span></a>
+    <div class="navlinks"><a href="#accueil">Accueil</a><a href="#jeux">Les jeux</a><a href="#infos">Infos</a></div>
+  </nav></div>
+  <header class="hero" id="accueil"><div class="wrap hero-inner">
+    <div class="eyebrow"><span class="pulse"></span> Ton portail de jeux</div>
+    <h1>STI2D<br><span>JM JEU</span></h1>
+    <p>Des jeux à lancer directement dans ton navigateur, sans installation : certains se jouent à plusieurs, d’autres reprennent l’esprit de jeux connus.</p>
+    <div class="hero-actions"><a class="button primary" href="#jeux">Découvrir les jeux <span aria-hidden="true">↓</span></a><a class="button secondary" href="https://veck.io" target="_blank" rel="noopener noreferrer">Lancer Rivals <span aria-hidden="true">↗</span></a></div>
+  </div></header>
+  <main class="wrap" id="jeux">
+    <div class="section-top"><div><p class="section-kicker">La sélection</p><h2>Choisis ton terrain de jeu</h2></div><span class="section-note">4 liens · ouverture dans un nouvel onglet</span></div>
+    <section class="grid" aria-label="Sites de jeux">
+      <a class="card featured" href="https://veck.io" target="_blank" rel="noopener noreferrer">
+        <div class="cardhead"><span class="icon">R</span><span class="badge">Multijoueur · FPS</span></div>
+        <h3>Rivals <span style="color:#8d99a4;font-size:15px;font-weight:500">sur Veck.io</span></h3>
+        <p>Le jeu de tir multijoueur façon Rivals, directement dans ton navigateur.</p>
+        <div class="cardfoot"><span class="url">veck.io</span><span class="visit">Jouer maintenant ↗</span></div>
+      </a>
+      <a class="card" href="https://sites.google.com/view/drive-u-7-home/" target="_blank" rel="noopener noreferrer">
+        <div class="cardhead"><span class="icon">D</span><span class="out" aria-hidden="true">↗</span></div>
+        <h3>Drive U-7</h3><p>Bibliothèque de jeux</p>
+        <div class="cardfoot"><span class="url">Google Sites</span><span class="visit">Ouvrir ↗</span></div>
+      </a>
+      <a class="card" href="https://sites.google.com/view/classroom6x/" target="_blank" rel="noopener noreferrer">
+        <div class="cardhead"><span class="icon">6x</span><span class="out" aria-hidden="true">↗</span></div>
+        <h3>Classroom 6x</h3><p>Catalogue de jeux</p>
+        <div class="cardfoot"><span class="url">Google Sites</span><span class="visit">Ouvrir ↗</span></div>
+      </a>
+      <a class="card" href="https://ubghyper.github.io" target="_blank" rel="noopener noreferrer">
+        <div class="cardhead"><span class="icon">U</span><span class="out" aria-hidden="true">↗</span></div>
+        <h3>UBG Hyper</h3><p>Bibliothèque de jeux</p>
+        <div class="cardfoot"><span class="url">ubghyper.github.io</span><span class="visit">Ouvrir ↗</span></div>
+      </a>
+    </section>
+  </main>
+  <footer class="footer" id="infos"><div class="wrap"><span>STI2D JM JEU</span><span>Dédicace à la Terminale STI2D 1 ✦</span></div></footer>
+</body>
+</html>
